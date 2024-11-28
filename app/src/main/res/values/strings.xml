@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="add_item">Добавить предмет</string>
+    <string name="app_name">SecondLab</string>
     <string name="add_button">Добавить</string>
     <string name="delete">Удалить отмеченные</string>
+    <string name="articles">Статьи</string>
+    <string name="add_article">Add Article</string>
 </resources>

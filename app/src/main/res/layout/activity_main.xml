@@ -1,38 +1,36 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- Поле для ввода нового предмета -->
-    <EditText
-        android:id="@+id/itemInput"
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/articles"
+            android:textSize="25sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="80dp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_article"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/add_item"
-        android:inputType="text"
-        android:minHeight="48dp" />
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add"
+        android:contentDescription="@string/add_article"
+        android:backgroundTint="@color/purple_500" />
 
-    <!-- Кнопка для добавления предмета -->
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_button" />
-
-    <!-- Список покупок -->
-    <ListView
-        android:id="@+id/shoppingListView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:dividerHeight="1dp" />
-
-    <!-- Кнопка для удаления всех отмеченных элементов -->
-    <Button
-        android:id="@+id/deleteSelectedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/delete" />
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

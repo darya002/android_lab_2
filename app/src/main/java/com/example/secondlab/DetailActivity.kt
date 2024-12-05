@@ -56,18 +56,6 @@ class DetailActivity : ComponentActivity() {
                 Log.d("DetailActivity", "Article is null!")
             }
         }
-
-
-//
-//        // Устанавливаем слушатель на кнопку "Edit"
-//        binding.button.setOnClickListener {
-//            article?.let {
-//                val intent = Intent(this, AddArticleActivity::class.java).apply {
-//                    putExtra(ARTICLE_ID_EXTRA, it.id)
-//                }
-//                editArticleLauncher.launch(intent) // Запуск AddArticleActivity
-//            }
-//        }
     }
 
     private fun updateUI(article: Article) {

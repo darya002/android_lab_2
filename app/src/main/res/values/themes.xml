@@ -1,7 +1,7 @@
 <resources>
 
-    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Дополнительные настройки темы -->
+    <style name="Theme.MyApplication" parent="Theme.AppCompat.DayNight.NoActionBar">
+
     </style>
 
 </resources>

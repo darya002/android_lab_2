@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">SecondLab</string>
-    <string name="add_button">Добавить</string>
-    <string name="delete">Удалить отмеченные</string>
-    <string name="articles">Статьи</string>
     <string name="add_article">Add Article</string>
+    <string name="textview">TextView</string>
+    <string name="done">Done</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
+    <string name="author">Author</string>
+    <string name="name">Name</string>
+    <string name="edit">Edit</string>
+    <string name="articles">Articles</string>
 </resources>

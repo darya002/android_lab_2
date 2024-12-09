@@ -11,7 +11,7 @@ import com.example.secondlab.SHARED_PREFS_NAME
 class ArticleCheckService : Service() {
 
     private val handler = Handler()
-    private val checkInterval: Long = 20 * 1000 // 6 часов  6 * 60 * 60 * 100
+    private val checkInterval: Long = 6 * 60 * 60 * 100 // 6 часов  6 * 60 * 60 * 100
 
     override fun onCreate() {
         super.onCreate()
@@ -32,7 +32,7 @@ class ArticleCheckService : Service() {
         val currentTime = System.currentTimeMillis()
 
         // Проверяем, прошло ли больше 24 часов с момента последнего добавления статьи
-        if (currentTime - lastUpdateTimestamp > 40 * 1000) {
+        if (currentTime - lastUpdateTimestamp > 24 * 60 * 60 * 10) {
             Log.d("ArticleCheckService", "No articles added for more than 24 hours")
 
             // Отправляем broadcast для напоминания

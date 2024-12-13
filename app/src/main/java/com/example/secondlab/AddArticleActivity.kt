@@ -2,6 +2,7 @@ package com.example.secondlab
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.activity.ComponentActivity
 import com.example.secondlab.databinding.EditArticleBinding
 import com.example.secondlab.models.ARTICLE_ID_EXTRA
@@ -9,6 +10,7 @@ import com.example.secondlab.models.Article
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import java.util.regex.Pattern
 
 class AddArticleActivity : ComponentActivity() {
 
@@ -16,6 +18,9 @@ class AddArticleActivity : ComponentActivity() {
     private var articleId: Int = -1
     private var articles: MutableList<Article> = mutableListOf()
     private var originalArticle: Article? = null // Оригинальные данные статьи
+
+    // Регулярное выражение для проверки формата даты (ДД/ММ/ГГГГ)
+    private val datePattern = Pattern.compile("^(0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).\\d{4}$")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +46,16 @@ class AddArticleActivity : ComponentActivity() {
         binding.button.setOnClickListener {
             if (articleId == -1) {
                 // Добавляем новую статью
-                addNewArticle()
-                showSnackbar("Статья добавлена!", null)
+                if (validateFields() && validateDate()) {
+                    addNewArticle()
+                    showSnackbar("Статья добавлена!", null)
+                }
             } else {
                 // Обновляем существующую статью
-                updateArticle()
-                showSnackbar("Статья обновлена!", ::rollbackChanges)
+                if (validateFields() && validateDate()) {
+                    updateArticle()
+                    showSnackbar("Статья обновлена!", ::rollbackChanges)
+                }
             }
         }
     }
@@ -136,5 +145,49 @@ class AddArticleActivity : ComponentActivity() {
             }
         })
         snackbar.show()
+    }
+
+    // Функция для проверки всех полей на заполненность
+    private fun validateFields(): Boolean {
+        var isValid = true
+
+        // Проверяем поле для названия
+        if (TextUtils.isEmpty(binding.name.text)) {
+            binding.name.error = "Поле не может быть пустым"
+            isValid = false
+        } else {
+            binding.name.error = null
+        }
+
+        // Проверяем поле для автора
+        if (TextUtils.isEmpty(binding.Author.text)) {
+            binding.Author.error = "Поле не может быть пустым"
+            isValid = false
+        } else {
+            binding.Author.error = null
+        }
+
+        // Проверяем поле для описания
+        if (TextUtils.isEmpty(binding.textDescription.text)) {
+            binding.textDescription.error = "Поле не может быть пустым"
+            isValid = false
+        } else {
+            binding.textDescription.error = null
+        }
+
+        return isValid
+    }
+
+    private fun validateDate(): Boolean {
+        val dateText = binding.Date.text.toString()
+        return if (dateText.isNotEmpty() && !datePattern.matcher(dateText).matches()) {
+            // Если дата не соответствует формату
+            binding.Date.error = "Неверный формат даты. Используйте ДД.ММ.ГГГГ"
+            false
+        } else {
+            // Если дата правильная
+            binding.Date.error = null
+            true
+        }
     }
 }

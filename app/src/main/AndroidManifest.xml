@@ -19,33 +19,38 @@
 
         <receiver android:name=".broadcastreceiver.ReminderReceiver" />
 
+        <!-- Главная активность -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Активность для детального просмотра статьи -->
         <activity
             android:name=".DetailActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication">
+            <!-- Intent filter для получения данных по ссылке -->
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="app" android:host="article" android:pathPrefix="/view" />
             </intent-filter>
         </activity>
+
+        <!-- Активность для добавления статьи -->
         <activity
             android:name=".AddArticleActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

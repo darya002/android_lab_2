@@ -36,10 +36,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="@string/description"
-        android:minHeight="48dp"
+        android:minHeight="100dp"
         android:paddingTop="20dp"
-        android:inputType="text"
-        tools:ignore="VisualLintTextFieldSize" />
+        android:inputType="textMultiLine"
+        android:lines="5"
+    android:scrollHorizontally="false"
+    android:gravity="top|start"
+    tools:ignore="VisualLintTextFieldSize" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Date"

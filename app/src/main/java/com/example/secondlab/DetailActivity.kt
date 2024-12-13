@@ -1,6 +1,7 @@
 package com.example.secondlab
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
@@ -30,11 +31,20 @@ class DetailActivity : ComponentActivity() {
         binding = CardDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Получаем данные из Intent (через URL или Extra)
         val articleId = intent.getIntExtra(ARTICLE_ID_EXTRA, -1)
-        articles = loadArticles()
-        article = articles.find { it.id == articleId }
+        val data: Uri? = intent.data
 
-        article?.let { updateUI(it) }
+        // Если данные приходят через URL, извлекаем articleId из URL
+        val articleIdFromUri = data?.lastPathSegment?.toIntOrNull()
+        val idToUse = if (articleIdFromUri != null) articleIdFromUri else articleId
+
+        if (idToUse != -1) {
+            articles = loadArticles()
+            article = articles.find { it.id == idToUse }
+
+            article?.let { updateUI(it) }
+        }
 
         // Обработчик для кнопки "Редактировать"
         binding.button.setOnClickListener {
@@ -78,7 +88,6 @@ class DetailActivity : ComponentActivity() {
         editor.apply()
     }
 
-
     private fun deleteArticle(article: Article) {
         // Удаляем статью из списка
         articles.remove(article)
@@ -100,6 +109,7 @@ class DetailActivity : ComponentActivity() {
                 }
             }).show()
     }
+
     private fun navigateToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

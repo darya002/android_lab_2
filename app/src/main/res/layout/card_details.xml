@@ -3,70 +3,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:text="@string/textview"
-        android:lines="1"
         android:layout_marginHorizontal="20dp"
-        android:gravity="center"/>
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/textview"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textAuthor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:lines="1"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="@string/textview" />
+        android:text="@string/textview"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/textFullDescription"
-        android:layout_marginHorizontal="20dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:text="@string/textview" />
+        android:layout_height="500dp"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/textFullDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:justificationMode="inter_word"
+            android:text="@string/textview"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </ScrollView>
 
     <TextView
         android:id="@+id/textDate"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
         android:lines="1"
+        android:text="@string/textview"
         android:textColor="@color/black"
-        android:text="@string/textview" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/edit"
-        tools:ignore="VisualLintButtonSize" />
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/edit" />
 
     <Button
         android:id="@+id/del_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/delete"
-        tools:ignore="VisualLintButtonSize" />
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/delete" />
 </LinearLayout>

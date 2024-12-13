@@ -2,12 +2,14 @@ package com.example.secondlab.models
 
 val Articles = mutableListOf<Article>()
 
-val ARTICLE_ID_EXTRA = "article extra"
+val ARTICLE_ID_EXTRA = "articleExtra"
+
+var currentArticleId = 0
 
 data class Article(
-    val title: String,
-    val content: String,
-    val author: String,
-    val date: String,
-    val id: Int? = Articles.size
+    var title: String,
+    var content: String,
+    var author: String,
+    var date: String,
+    val id: Int
 )

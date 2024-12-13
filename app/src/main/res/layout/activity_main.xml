@@ -13,13 +13,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/articles"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="80dp" />
+            android:layout_marginBottom="7dp" />
 
     </LinearLayout>
 
@@ -31,6 +32,6 @@
         android:layout_margin="16dp"
         android:src="@drawable/ic_add"
         android:contentDescription="@string/add_article"
-        android:backgroundTint="@color/purple_500" />
+        android:backgroundTint="@color/grey" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
